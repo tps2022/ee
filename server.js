@@ -25,6 +25,12 @@ app.get('/greeting/:name',(req,res) => {
 })
 
 
+app.get('/tip/:total/:percentage',(req,res) => {
+    let tip = req.params.total*(req.params.percentage/100)
+    res.render('tip',{
+       title:'tip', message: 'The total is ' + req.params.total +', and tabulated tip is ' + tip
+    })
+})
 
 app.listen(3000, () => {
     console.log("I am listening on port")
